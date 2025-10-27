@@ -1,18 +1,10 @@
-const express = require('express');
-require('dotenv').config();
-
-// Crear el servidor de express
-const app = express();
+const Server = require("./core/server");
 
 
-// Directorio Publico
-app.use( express.static('public'))
+const server = new Server();
 
-
-// Rutas
-
-
-// Escuchar Peticiones
-app.listen(process.env.PORT, () => {
-    console.log(`servidor corriendo en el puerto ${process.env.PORT}`);
-});
+server.start()
+    .then(() => console.log("Servidor iniciado correctamente"))
+    .catch((error) => {
+        console.error("Error al iniciar el servidor")
+    });
