@@ -1,7 +1,7 @@
 const express = require('express');
 const { dbConnection } = require('../database/config');
 require('dotenv').config();
-// const cors = require('cors'); // Te recomiendo agregar CORS
+const cors = require('cors');
 
 class Server {
 
@@ -21,7 +21,8 @@ class Server {
 
     // Middlewares
     configureMiddlewares() {
-        // this.app.use(cors()); // ← DESCOMENTAR si quieres usar CORS
+        this.app.use(cors()); 
+        
         this.app.use(express.json());
 
         // Directorio Publico
