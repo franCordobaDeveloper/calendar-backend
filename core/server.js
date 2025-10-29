@@ -22,7 +22,7 @@ class Server {
     // Middlewares
     configureMiddlewares() {
         this.app.use(cors()); 
-        
+
         this.app.use(express.json());
 
         // Directorio Publico
@@ -31,8 +31,8 @@ class Server {
     
     // Rutas de la aplicacion
     routes() {
-        
         this.app.use('/api/auth', require('../routes/auth')); 
+        this.app.use('/api/events', require('../routes/events'));
     }
 
     // conexion a la base de datos
